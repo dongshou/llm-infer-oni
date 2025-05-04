@@ -22,6 +22,7 @@ dependencies = [
 dev = [
     "git-filter-repo>=2.47.0",
 ]
+
 macos = [
     "pyobjc>=11.0",
 ]
