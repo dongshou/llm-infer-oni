@@ -1,0 +1,98 @@
+2025-05-05 00:19:13.045 | INFO     | utils.logger:setup_logger:69 - 日志文件配置完成: logs/ai_controller_202505050019.log
+2025-05-05 00:19:13.046 | INFO     | utils.logger:setup_logger:71 - 日志系统配置完成，级别: DEBUG
+2025-05-05 00:19:13.046 | INFO     | __main__:main:200 - ==================================================
+2025-05-05 00:19:13.046 | INFO     | __main__:main:201 - AI-UI-Controller 启动
+2025-05-05 00:19:13.046 | INFO     | __main__:main:202 - 环境: dev
+2025-05-05 00:19:13.046 | INFO     | __main__:main:203 - 任务: 建造一个制氧设备
+2025-05-05 00:19:13.046 | INFO     | __main__:main:204 - 最大迭代次数: 20
+2025-05-05 00:19:13.046 | INFO     | __main__:main:205 - 迭代延迟: 0.2秒
+2025-05-05 00:19:13.046 | INFO     | __main__:main:206 - ==================================================
+2025-05-05 00:19:13.046 | INFO     | base.agent:__init__:15 - Agent initialized with config
+2025-05-05 00:19:13.046 | INFO     | core.ui_agent:__init__:27 - UI代理初始化完成，最大迭代次数=20，迭代延迟=0.2秒
+2025-05-05 00:19:13.046 | INFO     | __main__:main:249 - 开始执行任务...
+2025-05-05 00:19:13.046 | INFO     | core.ui_agent:setup:33 - 正在设置UI代理组件
+2025-05-05 00:19:13.046 | DEBUG    | base.perception:__init__:14 - Perception module initialized
+2025-05-05 00:19:13.046 | DEBUG    | core.screen_capture:__init__:26 - Screen capture initialized with min interval: 0.2s
+2025-05-05 00:19:13.046 | DEBUG    | base.executor:__init__:14 - Executor module initialized
+2025-05-05 00:19:13.046 | DEBUG    | core.input_controller:__init__:31 - Input controller initialized, move_duration=0.1, type_interval=0.1
+2025-05-05 00:19:13.047 | DEBUG    | base.brain:__init__:14 - Brain module initialized
+2025-05-05 00:19:13.047 | INFO     | core.llm_decision:__init__:41 - 使用自定义API端点: https://yunwu.ai/v1
+2025-05-05 00:19:13.111 | DEBUG    | utils.prompt_manager:load_prompts:198 - 已加载指定提示词: default
+2025-05-05 00:19:13.112 | DEBUG    | utils.prompt_manager:load_prompts:198 - 已加载指定提示词: browser
+2025-05-05 00:19:13.112 | DEBUG    | utils.prompt_manager:load_prompts:198 - 已加载指定提示词: text_input
+2025-05-05 00:19:13.112 | DEBUG    | utils.prompt_manager:load_prompts:198 - 已加载指定提示词: office
+2025-05-05 00:19:13.113 | DEBUG    | utils.prompt_manager:load_prompts:210 - 从文件加载提示词: oxygen_not_included
+2025-05-05 00:19:13.113 | INFO     | utils.prompt_manager:load_prompts:237 - 已加载5个提示词
+2025-05-05 00:19:13.113 | INFO     | utils.prompt_manager:__init__:44 - 提示词管理器初始化完成，加载了5个提示词
+2025-05-05 00:19:13.113 | INFO     | core.llm_decision:__init__:51 - 大模型决策模块初始化完成，使用模型: o4-mini
+2025-05-05 00:19:13.113 | INFO     | core.llm_decision:__init__:52 - 已加载5个提示词
+2025-05-05 00:19:13.113 | INFO     | core.ui_agent:setup:47 - UI代理组件初始化完成
+2025-05-05 00:19:13.113 | INFO     | core.ui_agent:setup_middlewares:51 - 正在设置UI代理中间件
+2025-05-05 00:19:13.113 | DEBUG    | base.middleware:__init__:96 - Middleware manager initialized
+2025-05-05 00:19:13.116 | DEBUG    | base.middleware:__init__:14 - LoggingMiddleware middleware initialized
+2025-05-05 00:19:13.116 | INFO     | middlewares.logging_mw:__init__:26 - 日志中间件初始化完成，日志级别: DEBUG
+2025-05-05 00:19:13.116 | DEBUG    | base.middleware:add:111 - Added middleware: LoggingMiddleware
+2025-05-05 00:19:13.117 | DEBUG    | base.middleware:__init__:14 - ThrottlingMiddleware middleware initialized
+2025-05-05 00:19:13.117 | INFO     | middlewares.throttling:__init__:35 - 限流中间件初始化完成，默认延迟: 1.0秒
+2025-05-05 00:19:13.117 | DEBUG    | base.middleware:add:111 - Added middleware: ThrottlingMiddleware
+2025-05-05 00:19:13.117 | DEBUG    | base.middleware:__init__:14 - StateTrackingMiddleware middleware initialized
+2025-05-05 00:19:13.117 | INFO     | middlewares.state_tracking:__init__:35 - 状态追踪中间件初始化完成，最大历史记录数: 10
+2025-05-05 00:19:13.117 | DEBUG    | base.middleware:add:111 - Added middleware: StateTrackingMiddleware
+2025-05-05 00:19:13.118 | DEBUG    | base.middleware:__init__:14 - ScreenshotLoggerMiddleware middleware initialized
+2025-05-05 00:19:13.118 | DEBUG    | middlewares.screenshot_logger:_ensure_dirs:65 - 创建截图记录目录: logs/screenshots/20250505_001913
+2025-05-05 00:19:13.118 | INFO     | middlewares.screenshot_logger:__init__:60 - 截图记录中间件初始化完成，记录目录: logs/screenshots/20250505_001913
+2025-05-05 00:19:13.118 | DEBUG    | base.middleware:add:111 - Added middleware: ScreenshotLoggerMiddleware
+2025-05-05 00:19:13.118 | INFO     | core.ui_agent:setup_middlewares:66 - UI代理中间件初始化完成
+2025-05-05 00:19:13.118 | INFO     | core.ui_agent:run:87 - 开始执行UI代理任务: '建造一个制氧设备'
+2025-05-05 00:19:13.119 | INFO     | core.ui_agent:run:88 - 使用提示词: oxygen_not_included
+2025-05-05 00:19:13.119 | INFO     | core.ui_agent:run:104 - 迭代 1/20
+2025-05-05 00:19:13.119 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:19:13.119 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #1 (迭代 1) 开始 =====
+2025-05-05 00:19:13.119 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:19:13.473 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:19:13.919 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=2217, y=563)
+2025-05-05 00:19:13.920 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=2217, y=563)
+2025-05-05 00:19:13.975 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_001913/step_0001_1746375553_before.png
+2025-05-05 00:19:13.975 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:19:13.975 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:19:49.202 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:20:10.479 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时21.28秒
+2025-05-05 00:20:10.480 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}, {'type': 'move', 'x': 150, 'y': 730}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 210, 'y': 730}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 600, 'y': 350}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 300, 'y': 730}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 650, 'y': 350}, {'type': 'click', 'button': 'left', 'is_drag': True}, {'type': 'move', 'x': 700, 'y': 300, 'duration': 0.8}, {'type': 'click', 'button': 'left', 'is_drag': False}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:20:31.413 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}, {'type': 'move', 'x': 150, 'y': 730}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 210, 'y': 730}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 600, 'y': 350}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 300, 'y': 730}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 650, 'y': 350}, {'type': 'click', 'button': 'left', 'is_drag': True}, {'type': 'move', 'x': 700, 'y': 300, 'duration': 0.8}, {'type': 'click', 'button': 'left', 'is_drag': False}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:20:37.470 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 14 个)
+2025-05-05 00:20:37.470 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:20:37.470 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:20:37.471 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 移动鼠标到 (150, 730)
+2025-05-05 00:20:37.471 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 150, "y": 730}
+2025-05-05 00:20:37.471 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:20:37.471 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:20:37.471 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 移动鼠标到 (210, 730)
+2025-05-05 00:20:37.471 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 210, "y": 730}
+2025-05-05 00:20:37.471 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:20:37.471 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:20:37.471 | INFO     | middlewares.logging_mw:process_after_decision:101 -   6. 移动鼠标到 (600, 350)
+2025-05-05 00:20:37.471 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 600, "y": 350}
+2025-05-05 00:20:37.471 | INFO     | middlewares.logging_mw:process_after_decision:101 -   7. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:20:37.471 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:20:37.471 | INFO     | middlewares.logging_mw:process_after_decision:101 -   8. 移动鼠标到 (300, 730)
+2025-05-05 00:20:37.472 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 300, "y": 730}
+2025-05-05 00:20:37.472 | INFO     | middlewares.logging_mw:process_after_decision:101 -   9. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:20:37.472 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:20:37.472 | INFO     | middlewares.logging_mw:process_after_decision:101 -   10. 移动鼠标到 (650, 350)
+2025-05-05 00:20:37.472 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 650, "y": 350}
+2025-05-05 00:20:37.472 | INFO     | middlewares.logging_mw:process_after_decision:101 -   11. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:20:37.472 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left", "is_drag": true}
+2025-05-05 00:20:37.472 | INFO     | middlewares.logging_mw:process_after_decision:101 -   12. 移动鼠标到 (700, 300)
+2025-05-05 00:20:37.472 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 700, "y": 300, "duration": 0.8}
+2025-05-05 00:20:37.472 | INFO     | middlewares.logging_mw:process_after_decision:101 -   13. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:20:37.472 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left", "is_drag": false}
+2025-05-05 00:20:37.472 | INFO     | middlewares.logging_mw:process_after_decision:101 -   14. 按键 space
+2025-05-05 00:20:37.472 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:20:37.473 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_001913/step_0001_1746375553_analysis.txt
+2025-05-05 00:20:37.473 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:20:37.473 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析总结当前屏幕内容：
+2025-05-05 00:20:37.473 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 中央 在小行星岩石洞窟内，复制人刚刚被投放在起始舱旁。地面上有研究站，旁边有少量藻类资源。底部有水池，初始空气层稀薄，需要迅速制氧。
+2025-05-05 00:20:37.473 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左侧 UI 列表显示未建造“气体生产设备”，提示当前缺氧。底部工具栏可选择“基础”、“氧气”等建造类别。
+2025-05-05 00:20:37.473 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人空闲，手头资源有藻类、水、电力暂未接通。当前无紧急火灾、无污染，主要紧急问题：无氧气，复制人容易窒息。
+2025-05-05 00:20:37.474 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          任务目标：建造一个“藻类脱氧器”（Algae Deoxidizer）并连接电力。
+2025-05-05 00:20:37.474 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)

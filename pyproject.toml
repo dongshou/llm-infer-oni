@@ -1,0 +1,32 @@
+[project]
+name = "llm-infer-oni"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+
+# 公共依赖
+dependencies = [
+    "loguru>=0.7.3",
+    "openai>=1.77.0",
+    "pillow>=11.2.1",
+    "pyautogui>=0.9.54",
+    "pygetwindow>=0.0.9",
+    "pyscreeze>=1.0.1",
+    "pytest>=8.3.5",
+    "requests>=2.32.3",
+]
+
+[project.optional-dependencies]
+# Windows 环境下的额外依赖
+windows = [
+    "pywin32",  # 用于 Windows 平台的额外功能
+]
+# macOS 环境下的额外依赖
+macos = [
+]
+
+[dependency-groups]
+macos = [
+    "pyobjc>=11.0",
+]

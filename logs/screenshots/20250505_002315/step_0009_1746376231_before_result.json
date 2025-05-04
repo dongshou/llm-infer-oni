@@ -1,0 +1,49 @@
+{
+  "session_id": "590e1055",
+  "image_path": "step_0009_1746376231_before.png",
+  "action": [
+    {
+      "type": "key",
+      "keys": [
+        "space"
+      ]
+    },
+    {
+      "type": "key",
+      "keys": [
+        "o"
+      ]
+    },
+    {
+      "type": "move",
+      "x": 180,
+      "y": 1050
+    },
+    {
+      "type": "click",
+      "button": "left"
+    },
+    {
+      "type": "move",
+      "x": 650,
+      "y": 500
+    },
+    {
+      "type": "click",
+      "button": "left"
+    },
+    {
+      "type": "key",
+      "keys": [
+        "space"
+      ]
+    }
+  ],
+  "result": {
+    "success": true,
+    "timestamp": 1746376271.089621,
+    "error": null
+  },
+  "timestamp": 1746376271.090773,
+  "success": true
+}

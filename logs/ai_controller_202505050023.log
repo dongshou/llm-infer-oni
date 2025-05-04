@@ -1,0 +1,988 @@
+2025-05-05 00:23:15.023 | INFO     | utils.logger:setup_logger:69 - 日志文件配置完成: logs/ai_controller_202505050023.log
+2025-05-05 00:23:15.024 | INFO     | utils.logger:setup_logger:71 - 日志系统配置完成，级别: DEBUG
+2025-05-05 00:23:15.024 | INFO     | __main__:main:200 - ==================================================
+2025-05-05 00:23:15.024 | INFO     | __main__:main:201 - AI-UI-Controller 启动
+2025-05-05 00:23:15.024 | INFO     | __main__:main:202 - 环境: dev
+2025-05-05 00:23:15.024 | INFO     | __main__:main:203 - 任务: 建造一个制氧设备
+2025-05-05 00:23:15.024 | INFO     | __main__:main:204 - 最大迭代次数: 20
+2025-05-05 00:23:15.024 | INFO     | __main__:main:205 - 迭代延迟: 0.2秒
+2025-05-05 00:23:15.024 | INFO     | __main__:main:206 - ==================================================
+2025-05-05 00:23:15.025 | INFO     | base.agent:__init__:15 - Agent initialized with config
+2025-05-05 00:23:15.025 | INFO     | core.ui_agent:__init__:27 - UI代理初始化完成，最大迭代次数=20，迭代延迟=0.2秒
+2025-05-05 00:23:15.025 | INFO     | __main__:main:249 - 开始执行任务...
+2025-05-05 00:23:15.025 | INFO     | core.ui_agent:setup:33 - 正在设置UI代理组件
+2025-05-05 00:23:15.025 | DEBUG    | base.perception:__init__:14 - Perception module initialized
+2025-05-05 00:23:15.025 | DEBUG    | core.screen_capture:__init__:26 - Screen capture initialized with min interval: 0.2s
+2025-05-05 00:23:15.025 | DEBUG    | base.executor:__init__:14 - Executor module initialized
+2025-05-05 00:23:15.025 | DEBUG    | core.input_controller:__init__:31 - Input controller initialized, move_duration=0.1, type_interval=0.1
+2025-05-05 00:23:15.025 | DEBUG    | base.brain:__init__:14 - Brain module initialized
+2025-05-05 00:23:15.025 | INFO     | core.llm_decision:__init__:41 - 使用自定义API端点: https://yunwu.ai/v1
+2025-05-05 00:23:15.092 | DEBUG    | utils.prompt_manager:load_prompts:198 - 已加载指定提示词: default
+2025-05-05 00:23:15.093 | DEBUG    | utils.prompt_manager:load_prompts:198 - 已加载指定提示词: browser
+2025-05-05 00:23:15.093 | DEBUG    | utils.prompt_manager:load_prompts:198 - 已加载指定提示词: text_input
+2025-05-05 00:23:15.093 | DEBUG    | utils.prompt_manager:load_prompts:198 - 已加载指定提示词: office
+2025-05-05 00:23:15.094 | DEBUG    | utils.prompt_manager:load_prompts:210 - 从文件加载提示词: oxygen_not_included
+2025-05-05 00:23:15.095 | INFO     | utils.prompt_manager:load_prompts:237 - 已加载5个提示词
+2025-05-05 00:23:15.095 | INFO     | utils.prompt_manager:__init__:44 - 提示词管理器初始化完成，加载了5个提示词
+2025-05-05 00:23:15.095 | INFO     | core.llm_decision:__init__:51 - 大模型决策模块初始化完成，使用模型: o4-mini
+2025-05-05 00:23:15.095 | INFO     | core.llm_decision:__init__:52 - 已加载5个提示词
+2025-05-05 00:23:15.095 | INFO     | core.ui_agent:setup:47 - UI代理组件初始化完成
+2025-05-05 00:23:15.095 | INFO     | core.ui_agent:setup_middlewares:51 - 正在设置UI代理中间件
+2025-05-05 00:23:15.095 | DEBUG    | base.middleware:__init__:96 - Middleware manager initialized
+2025-05-05 00:23:15.100 | DEBUG    | base.middleware:__init__:14 - LoggingMiddleware middleware initialized
+2025-05-05 00:23:15.100 | INFO     | middlewares.logging_mw:__init__:26 - 日志中间件初始化完成，日志级别: DEBUG
+2025-05-05 00:23:15.100 | DEBUG    | base.middleware:add:111 - Added middleware: LoggingMiddleware
+2025-05-05 00:23:15.100 | DEBUG    | base.middleware:__init__:14 - ThrottlingMiddleware middleware initialized
+2025-05-05 00:23:15.100 | INFO     | middlewares.throttling:__init__:35 - 限流中间件初始化完成，默认延迟: 1.0秒
+2025-05-05 00:23:15.100 | DEBUG    | base.middleware:add:111 - Added middleware: ThrottlingMiddleware
+2025-05-05 00:23:15.101 | DEBUG    | base.middleware:__init__:14 - StateTrackingMiddleware middleware initialized
+2025-05-05 00:23:15.101 | INFO     | middlewares.state_tracking:__init__:35 - 状态追踪中间件初始化完成，最大历史记录数: 10
+2025-05-05 00:23:15.101 | DEBUG    | base.middleware:add:111 - Added middleware: StateTrackingMiddleware
+2025-05-05 00:23:15.101 | DEBUG    | base.middleware:__init__:14 - ScreenshotLoggerMiddleware middleware initialized
+2025-05-05 00:23:15.102 | DEBUG    | middlewares.screenshot_logger:_ensure_dirs:65 - 创建截图记录目录: logs/screenshots/20250505_002315
+2025-05-05 00:23:15.102 | INFO     | middlewares.screenshot_logger:__init__:60 - 截图记录中间件初始化完成，记录目录: logs/screenshots/20250505_002315
+2025-05-05 00:23:15.102 | DEBUG    | base.middleware:add:111 - Added middleware: ScreenshotLoggerMiddleware
+2025-05-05 00:23:15.102 | INFO     | core.ui_agent:setup_middlewares:66 - UI代理中间件初始化完成
+2025-05-05 00:23:15.102 | INFO     | core.ui_agent:run:87 - 开始执行UI代理任务: '建造一个制氧设备'
+2025-05-05 00:23:15.102 | INFO     | core.ui_agent:run:88 - 使用提示词: oxygen_not_included
+2025-05-05 00:23:15.102 | INFO     | core.ui_agent:run:104 - 迭代 1/20
+2025-05-05 00:23:15.102 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:23:15.102 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #1 (迭代 1) 开始 =====
+2025-05-05 00:23:15.102 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:23:15.471 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:23:15.920 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=2048, y=554)
+2025-05-05 00:23:15.921 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=2048, y=554)
+2025-05-05 00:23:15.968 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0001_1746375795_before.png
+2025-05-05 00:23:15.972 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:23:15.973 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:24:10.575 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:24:43.105 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时32.53秒
+2025-05-05 00:24:43.107 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 650, 'y': 330}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:24:46.658 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 650, 'y': 330}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:24:55.266 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 5 个)
+2025-05-05 00:24:55.266 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:24:55.266 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:24:55.266 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 按键 o
+2025-05-05 00:24:55.266 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["o"]}
+2025-05-05 00:24:55.266 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 移动鼠标到 (650, 330)
+2025-05-05 00:24:55.266 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 650, "y": 330}
+2025-05-05 00:24:55.266 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:24:55.266 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:24:55.266 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 按键 space
+2025-05-05 00:24:55.266 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:24:55.267 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:24:55.267 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:24:55.267 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:24:55.267 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:24:55.267 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:24:55.267 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:24:55.267 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:24:55.268 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:24:55.268 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:24:55.268 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:24:55.268 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:24:55.268 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:24:55.268 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:24:55.268 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:24:55.268 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:24:55.268 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:24:55.269 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:24:55.269 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:24:55.269 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:24:55.269 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:24:55.269 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:24:55.270 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:24:55.270 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:24:55.270 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:24:55.270 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:24:55.270 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:24:55.270 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:24:55.270 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:24:55.270 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:25:01.674 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 5 个)
+2025-05-05 00:25:01.675 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:25:01.675 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:25:01.675 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 按键 o
+2025-05-05 00:25:01.675 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["o"]}
+2025-05-05 00:25:01.675 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 移动鼠标到 (650, 330)
+2025-05-05 00:25:01.675 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 650, "y": 330}
+2025-05-05 00:25:01.676 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:25:01.676 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:25:01.676 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 按键 space
+2025-05-05 00:25:01.676 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:25:01.677 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:25:01.677 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:25:01.677 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:25:01.678 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:25:01.678 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:25:01.678 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:25:01.678 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:25:01.678 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:25:01.678 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:25:01.678 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:25:01.678 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:25:01.678 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:25:01.679 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:25:01.679 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:25:01.679 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:25:01.679 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:25:01.679 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:25:01.679 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:25:01.679 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:25:01.679 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:25:01.679 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:25:01.679 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:25:01.679 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:25:01.680 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:25:01.680 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:25:01.680 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:25:01.680 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:25:01.680 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:25:01.680 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:25:01.680 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:25:01.680 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:25:01.680 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:25:01.680 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0001_1746375795_analysis.txt
+2025-05-05 00:25:01.681 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:25:01.681 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕状态分析
+2025-05-05 00:25:01.681 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:25:01.681 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 复制人3名正聚集在打印舱旁的初始平台上。
+2025-05-05 00:25:01.681 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱左侧放置了一个小型储物箱，内含少量藻类。
+2025-05-05 00:25:01.681 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 下方可见一片水池，但暂未利用。
+2025-05-05 00:25:01.681 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:25:09.674 | DEBUG    | middlewares.logging_mw:process_before_execution:117 - 准备执行批量动作 (共 5 个)
+2025-05-05 00:25:16.381 | DEBUG    | core.ui_agent:step:232 - 正在执行动作
+2025-05-05 00:25:19.069 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:25:19.192 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: o
+2025-05-05 00:25:19.307 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (650, 330)
+2025-05-05 00:25:19.769 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (457, 302): 1 clicks, left button
+2025-05-05 00:25:20.144 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:25:44.720 | ERROR    | base.middleware:process_after_execution:244 - Error in middleware LoggingMiddleware process_after_execution: 'list' object has no attribute 'get'
+2025-05-05 00:25:44.721 | DEBUG    | middlewares.throttling:process_after_execution:116 - 动作执行耗时: 149.62秒
+2025-05-05 00:25:44.723 | DEBUG    | middlewares.screenshot_logger:process_after_execution:224 - 执行结果已记录: logs/screenshots/20250505_002315/step_0001_1746375795_before_result.json
+2025-05-05 00:25:44.723 | DEBUG    | core.ui_agent:step:256 - 步骤执行完成，耗时: 149.62秒
+2025-05-05 00:25:44.924 | INFO     | core.ui_agent:run:104 - 迭代 2/20
+2025-05-05 00:25:44.924 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:25:44.924 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #2 (迭代 2) 开始 =====
+2025-05-05 00:25:44.924 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:25:45.284 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:25:47.574 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=1986, y=451)
+2025-05-05 00:25:47.577 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=1986, y=451)
+2025-05-05 00:25:47.697 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0002_1746375947_before.png
+2025-05-05 00:25:47.697 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:25:47.698 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:25:56.481 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:26:32.165 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时35.68秒
+2025-05-05 00:26:32.168 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 200, 'y': 850}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 650, 'y': 470}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:26:32.169 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 200, 'y': 850}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 650, 'y': 470}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:26:32.170 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 7 个)
+2025-05-05 00:26:32.170 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:26:32.170 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:26:32.170 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 按键 o
+2025-05-05 00:26:32.171 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["o"]}
+2025-05-05 00:26:32.172 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 移动鼠标到 (200, 850)
+2025-05-05 00:26:32.172 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 200, "y": 850}
+2025-05-05 00:26:32.173 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:26:32.174 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:26:32.174 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 移动鼠标到 (650, 470)
+2025-05-05 00:26:32.174 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 650, "y": 470}
+2025-05-05 00:26:32.175 | INFO     | middlewares.logging_mw:process_after_decision:101 -   6. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:26:32.175 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:26:32.175 | INFO     | middlewares.logging_mw:process_after_decision:101 -   7. 按键 space
+2025-05-05 00:26:32.175 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:26:32.176 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0002_1746375947_analysis.txt
+2025-05-05 00:26:32.177 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:26:32.178 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: Step 1 – 当前屏幕内容分析
+2025-05-05 00:26:32.178 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人状态：3名复制人（刚刚从打印舱走出），全部处于闲置状态，无正在执行任务。
+2025-05-05 00:26:32.178 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：着陆点已经打印，地面为初始的着陆平台，与岩石表面连接；周围尚未封闭，底部有积水，右侧有少量植物与硅藻矿。
+2025-05-05 00:26:32.178 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:26:32.178 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 食物：12 525大卡
+2025-05-05 00:26:32.178 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:26:32.179 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0002_1746375947_analysis.txt
+2025-05-05 00:26:32.180 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:26:32.180 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: Step 1 – 当前屏幕内容分析
+2025-05-05 00:26:32.180 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人状态：3名复制人（刚刚从打印舱走出），全部处于闲置状态，无正在执行任务。
+2025-05-05 00:26:32.180 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：着陆点已经打印，地面为初始的着陆平台，与岩石表面连接；周围尚未封闭，底部有积水，右侧有少量植物与硅藻矿。
+2025-05-05 00:26:32.180 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:26:32.180 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 食物：12 525大卡
+2025-05-05 00:26:32.181 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:26:32.182 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0002_1746375947_analysis.txt
+2025-05-05 00:26:32.183 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:26:32.183 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: Step 1 – 当前屏幕内容分析
+2025-05-05 00:26:32.183 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人状态：3名复制人（刚刚从打印舱走出），全部处于闲置状态，无正在执行任务。
+2025-05-05 00:26:32.183 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：着陆点已经打印，地面为初始的着陆平台，与岩石表面连接；周围尚未封闭，底部有积水，右侧有少量植物与硅藻矿。
+2025-05-05 00:26:32.183 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:26:32.183 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 食物：12 525大卡
+2025-05-05 00:26:32.183 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:26:32.184 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0002_1746375947_analysis.txt
+2025-05-05 00:26:32.184 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:26:32.185 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: Step 1 – 当前屏幕内容分析
+2025-05-05 00:26:32.185 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人状态：3名复制人（刚刚从打印舱走出），全部处于闲置状态，无正在执行任务。
+2025-05-05 00:26:32.185 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：着陆点已经打印，地面为初始的着陆平台，与岩石表面连接；周围尚未封闭，底部有积水，右侧有少量植物与硅藻矿。
+2025-05-05 00:26:32.185 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:26:32.185 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 食物：12 525大卡
+2025-05-05 00:26:32.186 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:26:32.197 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0002_1746375947_analysis.txt
+2025-05-05 00:26:32.198 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:26:32.198 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: Step 1 – 当前屏幕内容分析
+2025-05-05 00:26:32.198 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人状态：3名复制人（刚刚从打印舱走出），全部处于闲置状态，无正在执行任务。
+2025-05-05 00:26:32.198 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：着陆点已经打印，地面为初始的着陆平台，与岩石表面连接；周围尚未封闭，底部有积水，右侧有少量植物与硅藻矿。
+2025-05-05 00:26:32.198 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:26:32.199 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 食物：12 525大卡
+2025-05-05 00:26:32.199 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:26:32.200 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0002_1746375947_analysis.txt
+2025-05-05 00:26:32.201 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:26:32.202 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: Step 1 – 当前屏幕内容分析
+2025-05-05 00:26:32.202 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人状态：3名复制人（刚刚从打印舱走出），全部处于闲置状态，无正在执行任务。
+2025-05-05 00:26:32.202 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：着陆点已经打印，地面为初始的着陆平台，与岩石表面连接；周围尚未封闭，底部有积水，右侧有少量植物与硅藻矿。
+2025-05-05 00:26:32.203 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:26:32.203 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 食物：12 525大卡
+2025-05-05 00:26:32.203 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:26:32.204 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0002_1746375947_analysis.txt
+2025-05-05 00:26:32.204 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:26:32.205 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: Step 1 – 当前屏幕内容分析
+2025-05-05 00:26:32.205 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人状态：3名复制人（刚刚从打印舱走出），全部处于闲置状态，无正在执行任务。
+2025-05-05 00:26:32.205 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：着陆点已经打印，地面为初始的着陆平台，与岩石表面连接；周围尚未封闭，底部有积水，右侧有少量植物与硅藻矿。
+2025-05-05 00:26:32.205 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:26:32.205 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 食物：12 525大卡
+2025-05-05 00:26:32.205 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:26:32.206 | DEBUG    | middlewares.logging_mw:process_before_execution:117 - 准备执行批量动作 (共 7 个)
+2025-05-05 00:26:32.241 | DEBUG    | core.ui_agent:step:232 - 正在执行动作
+2025-05-05 00:26:42.006 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:26:42.132 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: o
+2025-05-05 00:26:42.244 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (200, 850)
+2025-05-05 00:26:42.731 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (200, 850): 1 clicks, left button
+2025-05-05 00:26:43.032 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (650, 470)
+2025-05-05 00:26:43.686 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (650, 470): 1 clicks, left button
+2025-05-05 00:26:44.096 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:26:44.104 | ERROR    | base.middleware:process_after_execution:244 - Error in middleware LoggingMiddleware process_after_execution: 'list' object has no attribute 'get'
+2025-05-05 00:26:44.105 | DEBUG    | middlewares.throttling:process_after_execution:116 - 动作执行耗时: 59.18秒
+2025-05-05 00:26:44.118 | DEBUG    | middlewares.screenshot_logger:process_after_execution:224 - 执行结果已记录: logs/screenshots/20250505_002315/step_0002_1746375947_before_result.json
+2025-05-05 00:26:44.119 | DEBUG    | core.ui_agent:step:256 - 步骤执行完成，耗时: 59.19秒
+2025-05-05 00:26:44.415 | INFO     | core.ui_agent:run:104 - 迭代 3/20
+2025-05-05 00:26:44.416 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:26:44.416 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #3 (迭代 3) 开始 =====
+2025-05-05 00:26:44.416 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:26:45.028 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:26:46.531 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=3174, y=292)
+2025-05-05 00:26:46.531 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=3174, y=292)
+2025-05-05 00:26:46.546 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0003_1746376006_before.png
+2025-05-05 00:26:46.546 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:26:46.546 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:26:46.547 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:27:31.028 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时44.48秒
+2025-05-05 00:27:31.031 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}, {'type': 'move', 'x': 180, 'y': 1050}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 300, 'y': 600}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 350, 'y': 600}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 300, 'y': 620}, {'type': 'click', 'button': 'left', 'is_drag': True}, {'type': 'move', 'x': 350, 'y': 620, 'duration': 0.3}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:27:31.032 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}, {'type': 'move', 'x': 180, 'y': 1050}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 300, 'y': 600}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 350, 'y': 600}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 300, 'y': 620}, {'type': 'click', 'button': 'left', 'is_drag': True}, {'type': 'move', 'x': 350, 'y': 620, 'duration': 0.3}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:27:31.032 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 13 个)
+2025-05-05 00:27:31.032 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:27:31.033 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:27:31.033 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 移动鼠标到 (180, 1050)
+2025-05-05 00:27:31.033 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 180, "y": 1050}
+2025-05-05 00:27:31.033 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:27:31.033 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:27:31.041 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 移动鼠标到 (300, 600)
+2025-05-05 00:27:31.041 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 300, "y": 600}
+2025-05-05 00:27:31.041 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:27:31.041 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:27:31.041 | INFO     | middlewares.logging_mw:process_after_decision:101 -   6. 按键 o
+2025-05-05 00:27:31.041 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["o"]}
+2025-05-05 00:27:31.041 | INFO     | middlewares.logging_mw:process_after_decision:101 -   7. 移动鼠标到 (350, 600)
+2025-05-05 00:27:31.042 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 350, "y": 600}
+2025-05-05 00:27:31.042 | INFO     | middlewares.logging_mw:process_after_decision:101 -   8. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:27:31.042 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:27:31.042 | INFO     | middlewares.logging_mw:process_after_decision:101 -   9. 移动鼠标到 (300, 620)
+2025-05-05 00:27:31.042 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 300, "y": 620}
+2025-05-05 00:27:31.042 | INFO     | middlewares.logging_mw:process_after_decision:101 -   10. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:27:31.042 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left", "is_drag": true}
+2025-05-05 00:27:31.042 | INFO     | middlewares.logging_mw:process_after_decision:101 -   11. 移动鼠标到 (350, 620)
+2025-05-05 00:27:31.042 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 350, "y": 620, "duration": 0.3}
+2025-05-05 00:27:31.042 | INFO     | middlewares.logging_mw:process_after_decision:101 -   12. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:27:31.042 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:27:31.043 | INFO     | middlewares.logging_mw:process_after_decision:101 -   13. 按键 space
+2025-05-05 00:27:31.043 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:27:31.044 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.046 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:27:31.058 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.059 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.059 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.059 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.059 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.059 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.060 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.061 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:27:31.061 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.061 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.061 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.062 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.062 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.062 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.062 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.074 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:27:31.075 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.075 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.075 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.075 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.075 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.076 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.076 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.080 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:27:31.080 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.080 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.080 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.080 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.080 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.080 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.093 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.093 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:27:31.094 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.094 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.094 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.094 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.094 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.094 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.095 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.095 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:27:31.095 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.095 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.095 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.095 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.095 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.096 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.096 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.096 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:27:31.096 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.097 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.097 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.097 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.097 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.097 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.098 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.098 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:27:31.098 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.110 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.113 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.113 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.113 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.113 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.114 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.115 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:27:31.115 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.115 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.116 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.116 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.116 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.116 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.117 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.117 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:27:31.118 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.118 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.118 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.118 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.119 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.119 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.119 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.120 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:27:31.120 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.120 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.120 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.121 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.121 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.121 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.121 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.121 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:27:31.122 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.122 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.122 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.122 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.122 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.122 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.122 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0003_1746376006_analysis.txt
+2025-05-05 00:27:31.123 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:27:31.123 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 分析：
+2025-05-05 00:27:31.123 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          当前处于第2周期，中央视图显示打印舱所在的小房间，三名复制人在房间内。基地尚未搭建任何氧气生产设备和电力设备，任务提示“未建造氧气生产设备”“未建造厕所”。左侧资源面板可见砂岩与少量金属矿石，右侧底部...
+2025-05-05 00:27:31.123 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          规划步骤：
+2025-05-05 00:27:31.123 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          1. 暂停游戏，防止复制人继续行动。
+2025-05-05 00:27:31.123 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          2. 打开“电力”建造菜单，选择“手摇发电机”，放置在打印舱旁的可用地块上。
+2025-05-05 00:27:31.123 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:27:31.123 | DEBUG    | middlewares.logging_mw:process_before_execution:117 - 准备执行批量动作 (共 13 个)
+2025-05-05 00:27:31.124 | DEBUG    | core.ui_agent:step:232 - 正在执行动作
+2025-05-05 00:27:31.531 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:27:31.840 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (180, 1050)
+2025-05-05 00:27:32.502 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (180, 1050): 1 clicks, left button
+2025-05-05 00:27:32.812 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (300, 600)
+2025-05-05 00:27:33.466 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (300, 600): 1 clicks, left button
+2025-05-05 00:27:33.877 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: o
+2025-05-05 00:27:34.188 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (350, 600)
+2025-05-05 00:27:34.837 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (350, 600): 1 clicks, left button
+2025-05-05 00:27:35.147 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (300, 620)
+2025-05-05 00:27:35.802 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (300, 620): 1 clicks, left button
+2025-05-05 00:27:37.562 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (350, 620)
+2025-05-05 00:27:38.214 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (350, 620): 1 clicks, left button
+2025-05-05 00:27:38.629 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:27:38.632 | ERROR    | base.middleware:process_after_execution:244 - Error in middleware LoggingMiddleware process_after_execution: 'list' object has no attribute 'get'
+2025-05-05 00:27:38.632 | DEBUG    | middlewares.throttling:process_after_execution:116 - 动作执行耗时: 54.22秒
+2025-05-05 00:27:38.633 | DEBUG    | middlewares.screenshot_logger:process_after_execution:224 - 执行结果已记录: logs/screenshots/20250505_002315/step_0003_1746376006_before_result.json
+2025-05-05 00:27:38.634 | DEBUG    | core.ui_agent:step:256 - 步骤执行完成，耗时: 54.22秒
+2025-05-05 00:27:38.934 | INFO     | core.ui_agent:run:104 - 迭代 4/20
+2025-05-05 00:27:38.934 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:27:38.934 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #4 (迭代 4) 开始 =====
+2025-05-05 00:27:38.935 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:27:39.469 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:27:41.207 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=350, y=620)
+2025-05-05 00:27:41.219 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=350, y=620)
+2025-05-05 00:27:41.287 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0004_1746376061_before.png
+2025-05-05 00:27:41.288 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:27:41.289 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:27:41.291 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:28:15.432 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时34.14秒
+2025-05-05 00:28:15.433 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}, {'type': 'move', 'x': 2300, 'y': 80}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 2350, 'y': 180}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:28:15.433 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}, {'type': 'move', 'x': 2300, 'y': 80}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 2350, 'y': 180}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:28:15.434 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 6 个)
+2025-05-05 00:28:15.434 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:28:15.434 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:28:15.434 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 移动鼠标到 (2300, 80)
+2025-05-05 00:28:15.434 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 2300, "y": 80}
+2025-05-05 00:28:15.434 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:28:15.435 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:28:15.435 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 移动鼠标到 (2350, 180)
+2025-05-05 00:28:15.435 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 2350, "y": 180}
+2025-05-05 00:28:15.435 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:28:15.435 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:28:15.436 | INFO     | middlewares.logging_mw:process_after_decision:101 -   6. 按键 space
+2025-05-05 00:28:15.436 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:28:15.437 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0004_1746376061_analysis.txt
+2025-05-05 00:28:15.440 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:28:15.440 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:15.440 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：在画面中央可以看到屡印舱和一个空置的起始平台，平台右侧有3名复制人正在等待下一步任务。平台下方有一小片未封闭的水域，左侧和上方环绕大量可挖掘的岩石。
+2025-05-05 00:28:15.440 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：共有3名复制人，压力0%，能量充足，但尚无固定任务正在执行，他们正处于空闲状态。
+2025-05-05 00:28:15.440 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:28:15.440 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 可用沙岩：约944克
+2025-05-05 00:28:15.440 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:15.441 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0004_1746376061_analysis.txt
+2025-05-05 00:28:15.441 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:28:15.442 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:15.442 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：在画面中央可以看到屡印舱和一个空置的起始平台，平台右侧有3名复制人正在等待下一步任务。平台下方有一小片未封闭的水域，左侧和上方环绕大量可挖掘的岩石。
+2025-05-05 00:28:15.442 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：共有3名复制人，压力0%，能量充足，但尚无固定任务正在执行，他们正处于空闲状态。
+2025-05-05 00:28:15.443 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:28:15.443 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 可用沙岩：约944克
+2025-05-05 00:28:15.443 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:15.444 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0004_1746376061_analysis.txt
+2025-05-05 00:28:15.444 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:28:15.444 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:15.444 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：在画面中央可以看到屡印舱和一个空置的起始平台，平台右侧有3名复制人正在等待下一步任务。平台下方有一小片未封闭的水域，左侧和上方环绕大量可挖掘的岩石。
+2025-05-05 00:28:15.445 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：共有3名复制人，压力0%，能量充足，但尚无固定任务正在执行，他们正处于空闲状态。
+2025-05-05 00:28:15.445 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:28:15.445 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 可用沙岩：约944克
+2025-05-05 00:28:15.445 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:15.446 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0004_1746376061_analysis.txt
+2025-05-05 00:28:15.447 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:28:15.447 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:15.447 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：在画面中央可以看到屡印舱和一个空置的起始平台，平台右侧有3名复制人正在等待下一步任务。平台下方有一小片未封闭的水域，左侧和上方环绕大量可挖掘的岩石。
+2025-05-05 00:28:15.447 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：共有3名复制人，压力0%，能量充足，但尚无固定任务正在执行，他们正处于空闲状态。
+2025-05-05 00:28:15.448 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:28:15.448 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 可用沙岩：约944克
+2025-05-05 00:28:15.448 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:15.448 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0004_1746376061_analysis.txt
+2025-05-05 00:28:15.449 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:28:15.449 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:15.449 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：在画面中央可以看到屡印舱和一个空置的起始平台，平台右侧有3名复制人正在等待下一步任务。平台下方有一小片未封闭的水域，左侧和上方环绕大量可挖掘的岩石。
+2025-05-05 00:28:15.449 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：共有3名复制人，压力0%，能量充足，但尚无固定任务正在执行，他们正处于空闲状态。
+2025-05-05 00:28:15.449 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:28:15.450 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 可用沙岩：约944克
+2025-05-05 00:28:15.450 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:15.450 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0004_1746376061_analysis.txt
+2025-05-05 00:28:15.451 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:28:15.451 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:15.451 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：在画面中央可以看到屡印舱和一个空置的起始平台，平台右侧有3名复制人正在等待下一步任务。平台下方有一小片未封闭的水域，左侧和上方环绕大量可挖掘的岩石。
+2025-05-05 00:28:15.451 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：共有3名复制人，压力0%，能量充足，但尚无固定任务正在执行，他们正处于空闲状态。
+2025-05-05 00:28:15.451 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:28:15.451 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 可用沙岩：约944克
+2025-05-05 00:28:15.451 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:15.451 | DEBUG    | middlewares.logging_mw:process_before_execution:117 - 准备执行批量动作 (共 6 个)
+2025-05-05 00:28:15.452 | DEBUG    | core.ui_agent:step:232 - 正在执行动作
+2025-05-05 00:28:15.853 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:28:16.148 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (2300, 80)
+2025-05-05 00:28:16.800 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (2300, 80): 1 clicks, left button
+2025-05-05 00:28:17.100 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (2350, 180)
+2025-05-05 00:28:17.754 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (2350, 180): 1 clicks, left button
+2025-05-05 00:28:18.165 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:28:18.167 | ERROR    | base.middleware:process_after_execution:244 - Error in middleware LoggingMiddleware process_after_execution: 'list' object has no attribute 'get'
+2025-05-05 00:28:18.167 | DEBUG    | middlewares.throttling:process_after_execution:116 - 动作执行耗时: 39.23秒
+2025-05-05 00:28:18.169 | DEBUG    | middlewares.screenshot_logger:process_after_execution:224 - 执行结果已记录: logs/screenshots/20250505_002315/step_0004_1746376061_before_result.json
+2025-05-05 00:28:18.169 | DEBUG    | core.ui_agent:step:256 - 步骤执行完成，耗时: 39.23秒
+2025-05-05 00:28:18.468 | INFO     | core.ui_agent:run:104 - 迭代 5/20
+2025-05-05 00:28:18.469 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:28:18.470 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #5 (迭代 5) 开始 =====
+2025-05-05 00:28:18.470 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:28:18.864 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:28:19.847 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=2350, y=180)
+2025-05-05 00:28:19.848 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=2350, y=180)
+2025-05-05 00:28:19.872 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0005_1746376099_before.png
+2025-05-05 00:28:19.873 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:28:19.873 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:28:19.874 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:28:38.451 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时18.58秒
+2025-05-05 00:28:38.453 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 180, 'y': 1050}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 650, 'y': 500}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:28:38.453 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 180, 'y': 1050}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 650, 'y': 500}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:28:38.453 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 7 个)
+2025-05-05 00:28:38.454 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:28:38.454 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:28:38.454 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 按键 o
+2025-05-05 00:28:38.455 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["o"]}
+2025-05-05 00:28:38.455 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 移动鼠标到 (180, 1050)
+2025-05-05 00:28:38.456 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 180, "y": 1050}
+2025-05-05 00:28:38.456 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:28:38.462 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:28:38.462 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 移动鼠标到 (650, 500)
+2025-05-05 00:28:38.462 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 650, "y": 500}
+2025-05-05 00:28:38.463 | INFO     | middlewares.logging_mw:process_after_decision:101 -   6. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:28:38.463 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:28:38.463 | INFO     | middlewares.logging_mw:process_after_decision:101 -   7. 按键 space
+2025-05-05 00:28:38.463 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:28:38.464 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0005_1746376099_analysis.txt
+2025-05-05 00:28:38.465 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:28:38.465 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:38.465 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:28:38.465 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱位于画面中央上方，周围被岩石和沙子包围，尚未开辟其他生活或生产区。
+2025-05-05 00:28:38.465 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 地面主要由沙子和原生岩石构成，底部有一小块液体（水或岩浆）区域，周围未有任何管线或建筑。
+2025-05-05 00:28:38.465 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：
+2025-05-05 00:28:38.466 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:38.466 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0005_1746376099_analysis.txt
+2025-05-05 00:28:38.466 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:28:38.467 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:38.467 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:28:38.467 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱位于画面中央上方，周围被岩石和沙子包围，尚未开辟其他生活或生产区。
+2025-05-05 00:28:38.467 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 地面主要由沙子和原生岩石构成，底部有一小块液体（水或岩浆）区域，周围未有任何管线或建筑。
+2025-05-05 00:28:38.467 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：
+2025-05-05 00:28:38.468 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:38.470 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0005_1746376099_analysis.txt
+2025-05-05 00:28:38.470 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:28:38.471 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:38.471 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:28:38.477 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱位于画面中央上方，周围被岩石和沙子包围，尚未开辟其他生活或生产区。
+2025-05-05 00:28:38.478 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 地面主要由沙子和原生岩石构成，底部有一小块液体（水或岩浆）区域，周围未有任何管线或建筑。
+2025-05-05 00:28:38.478 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：
+2025-05-05 00:28:38.478 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:38.479 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0005_1746376099_analysis.txt
+2025-05-05 00:28:38.479 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:28:38.480 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:38.480 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:28:38.480 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱位于画面中央上方，周围被岩石和沙子包围，尚未开辟其他生活或生产区。
+2025-05-05 00:28:38.480 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 地面主要由沙子和原生岩石构成，底部有一小块液体（水或岩浆）区域，周围未有任何管线或建筑。
+2025-05-05 00:28:38.480 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：
+2025-05-05 00:28:38.480 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:38.481 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0005_1746376099_analysis.txt
+2025-05-05 00:28:38.482 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:28:38.482 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:38.482 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:28:38.482 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱位于画面中央上方，周围被岩石和沙子包围，尚未开辟其他生活或生产区。
+2025-05-05 00:28:38.482 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 地面主要由沙子和原生岩石构成，底部有一小块液体（水或岩浆）区域，周围未有任何管线或建筑。
+2025-05-05 00:28:38.482 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：
+2025-05-05 00:28:38.482 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:38.483 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0005_1746376099_analysis.txt
+2025-05-05 00:28:38.484 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:28:38.484 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:38.484 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:28:38.484 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱位于画面中央上方，周围被岩石和沙子包围，尚未开辟其他生活或生产区。
+2025-05-05 00:28:38.484 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 地面主要由沙子和原生岩石构成，底部有一小块液体（水或岩浆）区域，周围未有任何管线或建筑。
+2025-05-05 00:28:38.485 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：
+2025-05-05 00:28:38.485 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:38.485 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0005_1746376099_analysis.txt
+2025-05-05 00:28:38.486 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:28:38.486 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:28:38.486 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地布局：
+2025-05-05 00:28:38.486 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 打印舱位于画面中央上方，周围被岩石和沙子包围，尚未开辟其他生活或生产区。
+2025-05-05 00:28:38.487 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          • 地面主要由沙子和原生岩石构成，底部有一小块液体（水或岩浆）区域，周围未有任何管线或建筑。
+2025-05-05 00:28:38.487 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人情况：
+2025-05-05 00:28:38.487 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:28:38.487 | DEBUG    | middlewares.logging_mw:process_before_execution:117 - 准备执行批量动作 (共 7 个)
+2025-05-05 00:28:38.487 | DEBUG    | core.ui_agent:step:232 - 正在执行动作
+2025-05-05 00:28:38.910 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:28:39.328 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: o
+2025-05-05 00:28:39.639 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (180, 1050)
+2025-05-05 00:28:40.289 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (180, 1050): 1 clicks, left button
+2025-05-05 00:28:40.598 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (650, 500)
+2025-05-05 00:28:41.252 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (650, 500): 1 clicks, left button
+2025-05-05 00:28:41.664 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:28:41.665 | ERROR    | base.middleware:process_after_execution:244 - Error in middleware LoggingMiddleware process_after_execution: 'list' object has no attribute 'get'
+2025-05-05 00:28:41.665 | DEBUG    | middlewares.throttling:process_after_execution:116 - 动作执行耗时: 23.20秒
+2025-05-05 00:28:41.667 | DEBUG    | middlewares.screenshot_logger:process_after_execution:224 - 执行结果已记录: logs/screenshots/20250505_002315/step_0005_1746376099_before_result.json
+2025-05-05 00:28:41.667 | DEBUG    | core.ui_agent:step:256 - 步骤执行完成，耗时: 23.20秒
+2025-05-05 00:28:41.963 | INFO     | core.ui_agent:run:104 - 迭代 6/20
+2025-05-05 00:28:41.963 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:28:41.964 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #6 (迭代 6) 开始 =====
+2025-05-05 00:28:41.964 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:28:42.372 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:28:43.690 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=650, y=500)
+2025-05-05 00:28:43.702 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=650, y=500)
+2025-05-05 00:28:43.789 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0006_1746376123_before.png
+2025-05-05 00:28:43.790 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:28:43.790 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:28:43.792 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:29:17.284 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时33.49秒
+2025-05-05 00:29:17.286 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}]
+2025-05-05 00:29:17.286 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}]
+2025-05-05 00:29:17.286 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 1 个)
+2025-05-05 00:29:17.286 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:29:17.287 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:29:17.287 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0006_1746376123_analysis.txt
+2025-05-05 00:29:17.288 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:29:17.288 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容和游戏状态分析
+2025-05-05 00:29:17.289 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地结构：一个小型封闭空间，右侧有打印舱（孵化台）和研究台，左侧靠墙放置了一个手摇发电机。下面是一汪液体（水或石油）暂未利用。
+2025-05-05 00:29:17.289 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 复制人状况：3 名复制人正聚集在研究台附近，尚未进行任何建造或研究任务。
+2025-05-05 00:29:17.289 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源状况：
+2025-05-05 00:29:17.293 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 沙岩（~968g）围成的房间里温度约22°C。
+2025-05-05 00:29:17.293 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:17.293 | DEBUG    | middlewares.logging_mw:process_before_execution:117 - 准备执行批量动作 (共 1 个)
+2025-05-05 00:29:17.294 | DEBUG    | core.ui_agent:step:232 - 正在执行动作
+2025-05-05 00:29:17.711 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:29:17.712 | ERROR    | base.middleware:process_after_execution:244 - Error in middleware LoggingMiddleware process_after_execution: 'list' object has no attribute 'get'
+2025-05-05 00:29:17.712 | DEBUG    | middlewares.throttling:process_after_execution:116 - 动作执行耗时: 35.75秒
+2025-05-05 00:29:17.713 | DEBUG    | middlewares.screenshot_logger:process_after_execution:224 - 执行结果已记录: logs/screenshots/20250505_002315/step_0006_1746376123_before_result.json
+2025-05-05 00:29:17.713 | DEBUG    | core.ui_agent:step:256 - 步骤执行完成，耗时: 35.75秒
+2025-05-05 00:29:18.010 | INFO     | core.ui_agent:run:104 - 迭代 7/20
+2025-05-05 00:29:18.010 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:29:18.011 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #7 (迭代 7) 开始 =====
+2025-05-05 00:29:18.011 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:29:18.431 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:29:19.752 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=650, y=500)
+2025-05-05 00:29:19.753 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=650, y=500)
+2025-05-05 00:29:19.799 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0007_1746376159_before.png
+2025-05-05 00:29:19.799 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:29:19.799 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:29:19.800 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:29:45.865 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时26.07秒
+2025-05-05 00:29:45.867 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}, {'type': 'move', 'x': 1800, 'y': 80}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['r']}, {'type': 'move', 'x': 1600, 'y': 350}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 1700, 'y': 950}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:29:45.868 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}, {'type': 'move', 'x': 1800, 'y': 80}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['r']}, {'type': 'move', 'x': 1600, 'y': 350}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 1700, 'y': 950}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:29:45.868 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 9 个)
+2025-05-05 00:29:45.868 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:29:45.868 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:29:45.868 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 移动鼠标到 (1800, 80)
+2025-05-05 00:29:45.869 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 1800, "y": 80}
+2025-05-05 00:29:45.869 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:29:45.869 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:29:45.869 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 按键 r
+2025-05-05 00:29:45.869 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["r"]}
+2025-05-05 00:29:45.870 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 移动鼠标到 (1600, 350)
+2025-05-05 00:29:45.870 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 1600, "y": 350}
+2025-05-05 00:29:45.870 | INFO     | middlewares.logging_mw:process_after_decision:101 -   6. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:29:45.870 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:29:45.870 | INFO     | middlewares.logging_mw:process_after_decision:101 -   7. 移动鼠标到 (1700, 950)
+2025-05-05 00:29:45.870 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 1700, "y": 950}
+2025-05-05 00:29:45.871 | INFO     | middlewares.logging_mw:process_after_decision:101 -   8. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:29:45.872 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:29:45.872 | INFO     | middlewares.logging_mw:process_after_decision:101 -   9. 按键 space
+2025-05-05 00:29:45.873 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:29:45.874 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0007_1746376159_analysis.txt
+2025-05-05 00:29:45.875 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:29:45.876 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕和游戏状态观察
+2025-05-05 00:29:45.876 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地处在第2周期，只有打印舱和复制人刚刚落地，尚未展开任何基础设施。
+2025-05-05 00:29:45.876 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 环境完全封闭，无氧气生产设备，复制人站在打印舱旁正在窒息。
+2025-05-05 00:29:45.876 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源面板显示水、食物、电力都尚未投入使用；屏幕下方建造栏可见“基础”、“氧气”、“电力”等分类，但对应建筑尚未解锁或布置。
+2025-05-05 00:29:45.876 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右上角“研究”按钮可见，尚未选定任何科技项。
+2025-05-05 00:29:45.876 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:45.877 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0007_1746376159_analysis.txt
+2025-05-05 00:29:45.878 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:29:45.878 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕和游戏状态观察
+2025-05-05 00:29:45.878 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地处在第2周期，只有打印舱和复制人刚刚落地，尚未展开任何基础设施。
+2025-05-05 00:29:45.878 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 环境完全封闭，无氧气生产设备，复制人站在打印舱旁正在窒息。
+2025-05-05 00:29:45.878 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源面板显示水、食物、电力都尚未投入使用；屏幕下方建造栏可见“基础”、“氧气”、“电力”等分类，但对应建筑尚未解锁或布置。
+2025-05-05 00:29:45.879 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右上角“研究”按钮可见，尚未选定任何科技项。
+2025-05-05 00:29:45.879 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:45.880 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0007_1746376159_analysis.txt
+2025-05-05 00:29:45.880 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:29:45.880 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕和游戏状态观察
+2025-05-05 00:29:45.880 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地处在第2周期，只有打印舱和复制人刚刚落地，尚未展开任何基础设施。
+2025-05-05 00:29:45.881 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 环境完全封闭，无氧气生产设备，复制人站在打印舱旁正在窒息。
+2025-05-05 00:29:45.881 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源面板显示水、食物、电力都尚未投入使用；屏幕下方建造栏可见“基础”、“氧气”、“电力”等分类，但对应建筑尚未解锁或布置。
+2025-05-05 00:29:45.881 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右上角“研究”按钮可见，尚未选定任何科技项。
+2025-05-05 00:29:45.881 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:45.882 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0007_1746376159_analysis.txt
+2025-05-05 00:29:45.882 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:29:45.882 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕和游戏状态观察
+2025-05-05 00:29:45.883 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地处在第2周期，只有打印舱和复制人刚刚落地，尚未展开任何基础设施。
+2025-05-05 00:29:45.883 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 环境完全封闭，无氧气生产设备，复制人站在打印舱旁正在窒息。
+2025-05-05 00:29:45.883 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源面板显示水、食物、电力都尚未投入使用；屏幕下方建造栏可见“基础”、“氧气”、“电力”等分类，但对应建筑尚未解锁或布置。
+2025-05-05 00:29:45.883 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右上角“研究”按钮可见，尚未选定任何科技项。
+2025-05-05 00:29:45.883 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:45.883 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0007_1746376159_analysis.txt
+2025-05-05 00:29:45.883 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:29:45.884 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕和游戏状态观察
+2025-05-05 00:29:45.884 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地处在第2周期，只有打印舱和复制人刚刚落地，尚未展开任何基础设施。
+2025-05-05 00:29:45.884 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 环境完全封闭，无氧气生产设备，复制人站在打印舱旁正在窒息。
+2025-05-05 00:29:45.884 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源面板显示水、食物、电力都尚未投入使用；屏幕下方建造栏可见“基础”、“氧气”、“电力”等分类，但对应建筑尚未解锁或布置。
+2025-05-05 00:29:45.885 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右上角“研究”按钮可见，尚未选定任何科技项。
+2025-05-05 00:29:45.885 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:45.886 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0007_1746376159_analysis.txt
+2025-05-05 00:29:45.886 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:29:45.886 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕和游戏状态观察
+2025-05-05 00:29:45.887 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地处在第2周期，只有打印舱和复制人刚刚落地，尚未展开任何基础设施。
+2025-05-05 00:29:45.887 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 环境完全封闭，无氧气生产设备，复制人站在打印舱旁正在窒息。
+2025-05-05 00:29:45.887 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源面板显示水、食物、电力都尚未投入使用；屏幕下方建造栏可见“基础”、“氧气”、“电力”等分类，但对应建筑尚未解锁或布置。
+2025-05-05 00:29:45.887 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右上角“研究”按钮可见，尚未选定任何科技项。
+2025-05-05 00:29:45.887 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:45.887 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0007_1746376159_analysis.txt
+2025-05-05 00:29:45.891 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:29:45.891 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕和游戏状态观察
+2025-05-05 00:29:45.891 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地处在第2周期，只有打印舱和复制人刚刚落地，尚未展开任何基础设施。
+2025-05-05 00:29:45.891 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 环境完全封闭，无氧气生产设备，复制人站在打印舱旁正在窒息。
+2025-05-05 00:29:45.891 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源面板显示水、食物、电力都尚未投入使用；屏幕下方建造栏可见“基础”、“氧气”、“电力”等分类，但对应建筑尚未解锁或布置。
+2025-05-05 00:29:45.892 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右上角“研究”按钮可见，尚未选定任何科技项。
+2025-05-05 00:29:45.892 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:45.893 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0007_1746376159_analysis.txt
+2025-05-05 00:29:45.894 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:29:45.894 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕和游戏状态观察
+2025-05-05 00:29:45.894 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地处在第2周期，只有打印舱和复制人刚刚落地，尚未展开任何基础设施。
+2025-05-05 00:29:45.894 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 环境完全封闭，无氧气生产设备，复制人站在打印舱旁正在窒息。
+2025-05-05 00:29:45.894 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源面板显示水、食物、电力都尚未投入使用；屏幕下方建造栏可见“基础”、“氧气”、“电力”等分类，但对应建筑尚未解锁或布置。
+2025-05-05 00:29:45.894 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右上角“研究”按钮可见，尚未选定任何科技项。
+2025-05-05 00:29:45.894 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:45.895 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0007_1746376159_analysis.txt
+2025-05-05 00:29:45.895 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:29:45.895 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕和游戏状态观察
+2025-05-05 00:29:45.895 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 基地处在第2周期，只有打印舱和复制人刚刚落地，尚未展开任何基础设施。
+2025-05-05 00:29:45.895 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 环境完全封闭，无氧气生产设备，复制人站在打印舱旁正在窒息。
+2025-05-05 00:29:45.895 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 资源面板显示水、食物、电力都尚未投入使用；屏幕下方建造栏可见“基础”、“氧气”、“电力”等分类，但对应建筑尚未解锁或布置。
+2025-05-05 00:29:45.895 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右上角“研究”按钮可见，尚未选定任何科技项。
+2025-05-05 00:29:45.896 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:29:45.896 | DEBUG    | middlewares.logging_mw:process_before_execution:117 - 准备执行批量动作 (共 9 个)
+2025-05-05 00:29:45.896 | DEBUG    | core.ui_agent:step:232 - 正在执行动作
+2025-05-05 00:29:46.315 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:29:46.624 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (1800, 80)
+2025-05-05 00:29:47.265 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (1800, 80): 1 clicks, left button
+2025-05-05 00:29:47.680 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: r
+2025-05-05 00:29:47.990 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (1600, 350)
+2025-05-05 00:29:48.652 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (1600, 350): 1 clicks, left button
+2025-05-05 00:29:48.943 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (1700, 950)
+2025-05-05 00:29:49.572 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (1700, 950): 1 clicks, left button
+2025-05-05 00:29:49.963 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:29:49.964 | ERROR    | base.middleware:process_after_execution:244 - Error in middleware LoggingMiddleware process_after_execution: 'list' object has no attribute 'get'
+2025-05-05 00:29:49.964 | DEBUG    | middlewares.throttling:process_after_execution:116 - 动作执行耗时: 31.95秒
+2025-05-05 00:29:49.966 | DEBUG    | middlewares.screenshot_logger:process_after_execution:224 - 执行结果已记录: logs/screenshots/20250505_002315/step_0007_1746376159_before_result.json
+2025-05-05 00:29:49.966 | DEBUG    | core.ui_agent:step:256 - 步骤执行完成，耗时: 31.96秒
+2025-05-05 00:29:50.265 | INFO     | core.ui_agent:run:104 - 迭代 8/20
+2025-05-05 00:29:50.266 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:29:50.266 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #8 (迭代 8) 开始 =====
+2025-05-05 00:29:50.266 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:29:50.632 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:29:51.765 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=1700, y=950)
+2025-05-05 00:29:51.766 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=1700, y=950)
+2025-05-05 00:29:51.793 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0008_1746376191_before.png
+2025-05-05 00:29:51.793 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:29:51.794 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:29:51.795 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:30:26.316 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时34.52秒
+2025-05-05 00:30:26.318 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 180, 'y': 1050}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 900, 'y': 650}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:30:26.319 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 180, 'y': 1050}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 900, 'y': 650}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:30:26.319 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 7 个)
+2025-05-05 00:30:26.320 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:30:26.321 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:30:26.321 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 按键 o
+2025-05-05 00:30:26.322 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["o"]}
+2025-05-05 00:30:26.328 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 移动鼠标到 (180, 1050)
+2025-05-05 00:30:26.328 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 180, "y": 1050}
+2025-05-05 00:30:26.329 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:30:26.329 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:30:26.329 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 移动鼠标到 (900, 650)
+2025-05-05 00:30:26.329 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 900, "y": 650}
+2025-05-05 00:30:26.329 | INFO     | middlewares.logging_mw:process_after_decision:101 -   6. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:30:26.329 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:30:26.329 | INFO     | middlewares.logging_mw:process_after_decision:101 -   7. 按键 space
+2025-05-05 00:30:26.330 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:30:26.344 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0008_1746376191_analysis.txt
+2025-05-05 00:30:26.345 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:30:26.346 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容分析
+2025-05-05 00:30:26.346 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部显示：第2周期，3名复制人，0%压力（未出现高应激），库存食物12,525千卡。
+2025-05-05 00:30:26.346 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左侧任务面板提示“未建造空气生产设备”“未建造厕所”。
+2025-05-05 00:30:26.346 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 中央主视图：一个小型封闭初始基地，包含打印舱和一些原始地形，环境内尚有约2.8kg可呼吸气体，但没有任何制氧设施。
+2025-05-05 00:30:26.346 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右侧开启了氧气概览，显示当前空气含量、温度等信息。
+2025-05-05 00:30:26.346 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:30:26.347 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0008_1746376191_analysis.txt
+2025-05-05 00:30:26.348 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:30:26.348 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容分析
+2025-05-05 00:30:26.348 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部显示：第2周期，3名复制人，0%压力（未出现高应激），库存食物12,525千卡。
+2025-05-05 00:30:26.348 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左侧任务面板提示“未建造空气生产设备”“未建造厕所”。
+2025-05-05 00:30:26.348 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 中央主视图：一个小型封闭初始基地，包含打印舱和一些原始地形，环境内尚有约2.8kg可呼吸气体，但没有任何制氧设施。
+2025-05-05 00:30:26.348 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右侧开启了氧气概览，显示当前空气含量、温度等信息。
+2025-05-05 00:30:26.349 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:30:26.350 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0008_1746376191_analysis.txt
+2025-05-05 00:30:26.350 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:30:26.351 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容分析
+2025-05-05 00:30:26.351 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部显示：第2周期，3名复制人，0%压力（未出现高应激），库存食物12,525千卡。
+2025-05-05 00:30:26.351 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左侧任务面板提示“未建造空气生产设备”“未建造厕所”。
+2025-05-05 00:30:26.351 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 中央主视图：一个小型封闭初始基地，包含打印舱和一些原始地形，环境内尚有约2.8kg可呼吸气体，但没有任何制氧设施。
+2025-05-05 00:30:26.351 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右侧开启了氧气概览，显示当前空气含量、温度等信息。
+2025-05-05 00:30:26.351 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:30:26.351 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0008_1746376191_analysis.txt
+2025-05-05 00:30:26.352 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:30:26.352 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容分析
+2025-05-05 00:30:26.352 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部显示：第2周期，3名复制人，0%压力（未出现高应激），库存食物12,525千卡。
+2025-05-05 00:30:26.352 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左侧任务面板提示“未建造空气生产设备”“未建造厕所”。
+2025-05-05 00:30:26.352 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 中央主视图：一个小型封闭初始基地，包含打印舱和一些原始地形，环境内尚有约2.8kg可呼吸气体，但没有任何制氧设施。
+2025-05-05 00:30:26.352 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右侧开启了氧气概览，显示当前空气含量、温度等信息。
+2025-05-05 00:30:26.352 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:30:26.353 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0008_1746376191_analysis.txt
+2025-05-05 00:30:26.353 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:30:26.353 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容分析
+2025-05-05 00:30:26.353 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部显示：第2周期，3名复制人，0%压力（未出现高应激），库存食物12,525千卡。
+2025-05-05 00:30:26.353 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左侧任务面板提示“未建造空气生产设备”“未建造厕所”。
+2025-05-05 00:30:26.353 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 中央主视图：一个小型封闭初始基地，包含打印舱和一些原始地形，环境内尚有约2.8kg可呼吸气体，但没有任何制氧设施。
+2025-05-05 00:30:26.354 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右侧开启了氧气概览，显示当前空气含量、温度等信息。
+2025-05-05 00:30:26.354 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:30:26.354 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0008_1746376191_analysis.txt
+2025-05-05 00:30:26.354 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:30:26.354 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容分析
+2025-05-05 00:30:26.355 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部显示：第2周期，3名复制人，0%压力（未出现高应激），库存食物12,525千卡。
+2025-05-05 00:30:26.355 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左侧任务面板提示“未建造空气生产设备”“未建造厕所”。
+2025-05-05 00:30:26.355 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 中央主视图：一个小型封闭初始基地，包含打印舱和一些原始地形，环境内尚有约2.8kg可呼吸气体，但没有任何制氧设施。
+2025-05-05 00:30:26.355 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右侧开启了氧气概览，显示当前空气含量、温度等信息。
+2025-05-05 00:30:26.355 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:30:26.355 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0008_1746376191_analysis.txt
+2025-05-05 00:30:26.355 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:30:26.356 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕内容分析
+2025-05-05 00:30:26.356 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部显示：第2周期，3名复制人，0%压力（未出现高应激），库存食物12,525千卡。
+2025-05-05 00:30:26.356 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左侧任务面板提示“未建造空气生产设备”“未建造厕所”。
+2025-05-05 00:30:26.356 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 中央主视图：一个小型封闭初始基地，包含打印舱和一些原始地形，环境内尚有约2.8kg可呼吸气体，但没有任何制氧设施。
+2025-05-05 00:30:26.356 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 右侧开启了氧气概览，显示当前空气含量、温度等信息。
+2025-05-05 00:30:26.356 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:30:26.356 | DEBUG    | middlewares.logging_mw:process_before_execution:117 - 准备执行批量动作 (共 7 个)
+2025-05-05 00:30:26.356 | DEBUG    | core.ui_agent:step:232 - 正在执行动作
+2025-05-05 00:30:26.782 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:30:27.178 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: o
+2025-05-05 00:30:27.489 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (180, 1050)
+2025-05-05 00:30:28.148 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (180, 1050): 1 clicks, left button
+2025-05-05 00:30:28.444 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (900, 650)
+2025-05-05 00:30:29.092 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (900, 650): 1 clicks, left button
+2025-05-05 00:30:29.508 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:30:29.509 | ERROR    | base.middleware:process_after_execution:244 - Error in middleware LoggingMiddleware process_after_execution: 'list' object has no attribute 'get'
+2025-05-05 00:30:29.509 | DEBUG    | middlewares.throttling:process_after_execution:116 - 动作执行耗时: 39.24秒
+2025-05-05 00:30:29.511 | DEBUG    | middlewares.screenshot_logger:process_after_execution:224 - 执行结果已记录: logs/screenshots/20250505_002315/step_0008_1746376191_before_result.json
+2025-05-05 00:30:29.512 | DEBUG    | core.ui_agent:step:256 - 步骤执行完成，耗时: 39.25秒
+2025-05-05 00:30:29.811 | INFO     | core.ui_agent:run:104 - 迭代 9/20
+2025-05-05 00:30:29.811 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:30:29.812 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #9 (迭代 9) 开始 =====
+2025-05-05 00:30:29.812 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:30:30.198 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:30:31.559 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=900, y=650)
+2025-05-05 00:30:31.559 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=900, y=650)
+2025-05-05 00:30:31.598 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0009_1746376231_before.png
+2025-05-05 00:30:31.599 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:30:31.599 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:30:31.600 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:31:07.867 | DEBUG    | core.llm_decision:_call_api:261 - API响应已接收，耗时36.27秒
+2025-05-05 00:31:07.882 | DEBUG    | core.llm_decision:_parse_response:297 - 已解析动作: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 180, 'y': 1050}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 650, 'y': 500}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:31:07.896 | INFO     | core.ui_agent:step:195 - 决策结果: [{'type': 'key', 'keys': ['space']}, {'type': 'key', 'keys': ['o']}, {'type': 'move', 'x': 180, 'y': 1050}, {'type': 'click', 'button': 'left'}, {'type': 'move', 'x': 650, 'y': 500}, {'type': 'click', 'button': 'left'}, {'type': 'key', 'keys': ['space']}]
+2025-05-05 00:31:07.897 | INFO     | middlewares.logging_mw:process_after_decision:99 - 决策: 批量动作 (共 7 个)
+2025-05-05 00:31:07.897 | INFO     | middlewares.logging_mw:process_after_decision:101 -   1. 按键 space
+2025-05-05 00:31:07.897 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:31:07.898 | INFO     | middlewares.logging_mw:process_after_decision:101 -   2. 按键 o
+2025-05-05 00:31:07.898 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["o"]}
+2025-05-05 00:31:07.898 | INFO     | middlewares.logging_mw:process_after_decision:101 -   3. 移动鼠标到 (180, 1050)
+2025-05-05 00:31:07.898 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 180, "y": 1050}
+2025-05-05 00:31:07.898 | INFO     | middlewares.logging_mw:process_after_decision:101 -   4. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:31:07.898 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:31:07.899 | INFO     | middlewares.logging_mw:process_after_decision:101 -   5. 移动鼠标到 (650, 500)
+2025-05-05 00:31:07.899 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "move", "x": 650, "y": 500}
+2025-05-05 00:31:07.899 | INFO     | middlewares.logging_mw:process_after_decision:101 -   6. 点击鼠标 left 在 (0, 0)
+2025-05-05 00:31:07.899 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "click", "button": "left"}
+2025-05-05 00:31:07.899 | INFO     | middlewares.logging_mw:process_after_decision:101 -   7. 按键 space
+2025-05-05 00:31:07.899 | DEBUG    | middlewares.logging_mw:process_after_decision:103 -   动作详情: {"type": "key", "keys": ["space"]}
+2025-05-05 00:31:07.900 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0009_1746376231_analysis.txt
+2025-05-05 00:31:07.901 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:31:07.901 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕观察
+2025-05-05 00:31:07.901 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 周期2，3名复制人刚刚登陆，基地仅有打印舱和周边少量地形，尚未建造任何制氧设备
+2025-05-05 00:31:07.901 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 食物储备充足（12,525千卡），但氧气仍为0%，亟需制氧
+2025-05-05 00:31:07.901 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左下角可见基础建造类别按钮，第二个“氧气”类别可切换到制氧相关建筑；右侧当前打开的是“砂岩”属性面板
+2025-05-05 00:31:07.901 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部研究、状态、优先级等按钮均可正常使用，当前未选中任何研究项目
+2025-05-05 00:31:07.901 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:31:07.902 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0009_1746376231_analysis.txt
+2025-05-05 00:31:07.903 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:31:07.903 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕观察
+2025-05-05 00:31:07.904 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 周期2，3名复制人刚刚登陆，基地仅有打印舱和周边少量地形，尚未建造任何制氧设备
+2025-05-05 00:31:07.904 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 食物储备充足（12,525千卡），但氧气仍为0%，亟需制氧
+2025-05-05 00:31:07.904 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左下角可见基础建造类别按钮，第二个“氧气”类别可切换到制氧相关建筑；右侧当前打开的是“砂岩”属性面板
+2025-05-05 00:31:07.904 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部研究、状态、优先级等按钮均可正常使用，当前未选中任何研究项目
+2025-05-05 00:31:07.904 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:31:07.905 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0009_1746376231_analysis.txt
+2025-05-05 00:31:07.905 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:31:07.905 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕观察
+2025-05-05 00:31:07.906 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 周期2，3名复制人刚刚登陆，基地仅有打印舱和周边少量地形，尚未建造任何制氧设备
+2025-05-05 00:31:07.906 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 食物储备充足（12,525千卡），但氧气仍为0%，亟需制氧
+2025-05-05 00:31:07.906 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左下角可见基础建造类别按钮，第二个“氧气”类别可切换到制氧相关建筑；右侧当前打开的是“砂岩”属性面板
+2025-05-05 00:31:07.906 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部研究、状态、优先级等按钮均可正常使用，当前未选中任何研究项目
+2025-05-05 00:31:07.906 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:31:07.907 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0009_1746376231_analysis.txt
+2025-05-05 00:31:07.919 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:31:07.919 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕观察
+2025-05-05 00:31:07.919 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 周期2，3名复制人刚刚登陆，基地仅有打印舱和周边少量地形，尚未建造任何制氧设备
+2025-05-05 00:31:07.920 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 食物储备充足（12,525千卡），但氧气仍为0%，亟需制氧
+2025-05-05 00:31:07.920 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左下角可见基础建造类别按钮，第二个“氧气”类别可切换到制氧相关建筑；右侧当前打开的是“砂岩”属性面板
+2025-05-05 00:31:07.920 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部研究、状态、优先级等按钮均可正常使用，当前未选中任何研究项目
+2025-05-05 00:31:07.920 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:31:07.920 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0009_1746376231_analysis.txt
+2025-05-05 00:31:07.921 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: move
+2025-05-05 00:31:07.921 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕观察
+2025-05-05 00:31:07.921 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 周期2，3名复制人刚刚登陆，基地仅有打印舱和周边少量地形，尚未建造任何制氧设备
+2025-05-05 00:31:07.921 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 食物储备充足（12,525千卡），但氧气仍为0%，亟需制氧
+2025-05-05 00:31:07.921 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左下角可见基础建造类别按钮，第二个“氧气”类别可切换到制氧相关建筑；右侧当前打开的是“砂岩”属性面板
+2025-05-05 00:31:07.921 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部研究、状态、优先级等按钮均可正常使用，当前未选中任何研究项目
+2025-05-05 00:31:07.921 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:31:07.922 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0009_1746376231_analysis.txt
+2025-05-05 00:31:07.923 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: click
+2025-05-05 00:31:07.923 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕观察
+2025-05-05 00:31:07.923 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 周期2，3名复制人刚刚登陆，基地仅有打印舱和周边少量地形，尚未建造任何制氧设备
+2025-05-05 00:31:07.923 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 食物储备充足（12,525千卡），但氧气仍为0%，亟需制氧
+2025-05-05 00:31:07.923 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左下角可见基础建造类别按钮，第二个“氧气”类别可切换到制氧相关建筑；右侧当前打开的是“砂岩”属性面板
+2025-05-05 00:31:07.923 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部研究、状态、优先级等按钮均可正常使用，当前未选中任何研究项目
+2025-05-05 00:31:07.924 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:31:07.924 | DEBUG    | middlewares.screenshot_logger:_log_single_action:94 - 模型分析已保存: logs/screenshots/20250505_002315/step_0009_1746376231_analysis.txt
+2025-05-05 00:31:07.925 | DEBUG    | middlewares.screenshot_logger:_log_single_action:129 - 动作已记录到日志: key
+2025-05-05 00:31:07.925 | INFO     | middlewares.screenshot_logger:_log_single_action:136 - 模型分析: 1. 当前屏幕观察
+2025-05-05 00:31:07.925 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 周期2，3名复制人刚刚登陆，基地仅有打印舱和周边少量地形，尚未建造任何制氧设备
+2025-05-05 00:31:07.925 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 食物储备充足（12,525千卡），但氧气仍为0%，亟需制氧
+2025-05-05 00:31:07.925 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 左下角可见基础建造类别按钮，第二个“氧气”类别可切换到制氧相关建筑；右侧当前打开的是“砂岩”属性面板
+2025-05-05 00:31:07.925 | INFO     | middlewares.screenshot_logger:_log_single_action:136 -          - 顶部研究、状态、优先级等按钮均可正常使用，当前未选中任何研究项目
+2025-05-05 00:31:07.925 | INFO     | middlewares.screenshot_logger:_log_single_action:138 -          ... (更多分析内容已保存到文件)
+2025-05-05 00:31:07.925 | DEBUG    | middlewares.logging_mw:process_before_execution:117 - 准备执行批量动作 (共 7 个)
+2025-05-05 00:31:07.925 | DEBUG    | core.ui_agent:step:232 - 正在执行动作
+2025-05-05 00:31:08.324 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:31:08.734 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: o
+2025-05-05 00:31:09.041 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (180, 1050)
+2025-05-05 00:31:09.698 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (180, 1050): 1 clicks, left button
+2025-05-05 00:31:10.009 | DEBUG    | core.input_controller:_move_mouse:159 - Mouse moved to (650, 500)
+2025-05-05 00:31:10.674 | DEBUG    | core.input_controller:_click_mouse:192 - Mouse clicked at current position (650, 500): 1 clicks, left button
+2025-05-05 00:31:11.088 | DEBUG    | core.input_controller:_press_key:241 - Key pressed: space
+2025-05-05 00:31:11.090 | ERROR    | base.middleware:process_after_execution:244 - Error in middleware LoggingMiddleware process_after_execution: 'list' object has no attribute 'get'
+2025-05-05 00:31:11.090 | DEBUG    | middlewares.throttling:process_after_execution:116 - 动作执行耗时: 41.28秒
+2025-05-05 00:31:11.092 | DEBUG    | middlewares.screenshot_logger:process_after_execution:224 - 执行结果已记录: logs/screenshots/20250505_002315/step_0009_1746376231_before_result.json
+2025-05-05 00:31:11.092 | DEBUG    | core.ui_agent:step:256 - 步骤执行完成，耗时: 41.28秒
+2025-05-05 00:31:11.387 | INFO     | core.ui_agent:run:104 - 迭代 10/20
+2025-05-05 00:31:11.387 | DEBUG    | core.ui_agent:step:176 - 开始执行步骤
+2025-05-05 00:31:11.388 | DEBUG    | middlewares.logging_mw:process_before_perception:56 - ===== 操作 #10 (迭代 10) 开始 =====
+2025-05-05 00:31:11.388 | DEBUG    | core.ui_agent:step:183 - 正在捕获屏幕
+2025-05-05 00:31:11.807 | DEBUG    | core.screen_capture:capture:50 - Screen captured: 2560x1440
+2025-05-05 00:31:13.027 | DEBUG    | core.screen_capture:process:89 - Processed screen: 2560x1440, cursor at Point(x=650, y=500)
+2025-05-05 00:31:13.028 | DEBUG    | middlewares.logging_mw:process_after_perception:72 - 屏幕状态: 2560x1440, 鼠标位置: Point(x=650, y=500)
+2025-05-05 00:31:13.062 | DEBUG    | middlewares.screenshot_logger:process_after_perception:165 - 截图已保存: logs/screenshots/20250505_002315/step_0010_1746376273_before.png
+2025-05-05 00:31:13.063 | DEBUG    | middlewares.logging_mw:process_before_decision:86 - 开始进行决策
+2025-05-05 00:31:13.063 | DEBUG    | core.ui_agent:step:193 - 正在进行决策
+2025-05-05 00:31:13.064 | DEBUG    | core.llm_decision:_call_api:247 - 正在发送请求到OpenAI API
+2025-05-05 00:31:16.286 | INFO     | core.ui_agent:run:124 - UI代理被用户中断
+2025-05-05 00:31:16.288 | INFO     | core.ui_agent:stop:268 - UI代理已停止
+2025-05-05 00:31:16.288 | INFO     | core.ui_agent:run:132 - UI代理在10次迭代后完成，用时481.19秒
+2025-05-05 00:31:16.288 | INFO     | __main__:main:255 - ==================================================
+2025-05-05 00:31:16.288 | INFO     | __main__:main:256 - 任务执行完成，总用时: 481.26秒
+2025-05-05 00:31:16.288 | INFO     | __main__:main:257 - 总迭代次数: 10
+2025-05-05 00:31:16.288 | INFO     | __main__:main:264 - 操作总数: 11, 成功: 11, 失败: 0
+2025-05-05 00:31:16.288 | INFO     | __main__:main:266 - ==================================================
